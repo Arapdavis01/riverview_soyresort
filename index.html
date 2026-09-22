@@ -3,257 +3,708 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="SOY Riverview Resort — riverside luxury, serene cottages, farm-to-table dining, bonfire nights, and unforgettable sunsets in Soy, Uasin Gishu, Kenya.">
+    <meta name="keywords" content="SOY Riverview, resort Kenya, Uasin Gishu resort, riverside cottages, bonfire, nyama choma, accommodation Eldoret">
+    <meta name="theme-color" content="#1a2e18">
+
+    <!-- Open Graph (Social Share) -->
+    <meta property="og:title" content="SOY Riverview Resort | Riverside Luxury & Serenity">
+    <meta property="og:description" content="Wake up to whispering rivers & emerald woods — your sanctuary awaits.">
+    <meta property="og:image" content="images/0001.jpeg">
+    <meta property="og:type" content="website">
+
     <title>SOY Riverview Resort | Riverside Luxury & Serenity</title>
 
-    <!-- Modern Luxury Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/0001.jpeg">
 </head>
 <body>
 
-    <!-- ============ FLOATING NAVIGATION ============ -->
-    <nav id="mainNav">
+    <!-- ============================================================
+         SCROLL PROGRESS BAR
+    ============================================================ -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ============================================================
+         FLOATING NAVIGATION
+    ============================================================ -->
+    <nav id="mainNav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <div class="logo"><a href="#home">SOY <span>Riverview</span></a></div>
-            <div class="nav-links">
-                <a href="#home" class="active-page">Home</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#dining">Dining</a>
-                <a href="#rooms">Rooms</a>
-                <a href="#about">About</a>
-                <a href="#contact" class="btn-nav-contact">Contact Us</a>
+            <div class="logo">
+                <a href="#home" aria-label="SOY Riverview home">
+                    <span class="logo-icon"><i class="fas fa-leaf"></i></span>
+                    <span class="logo-text">SOY <span>Riverview</span></span>
+                </a>
             </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <div class="nav-links" role="menubar">
+                <a href="#home" class="active-page"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="#gallery"><i class="fas fa-images"></i><span>Gallery</span></a>
+                <a href="#dining"><i class="fas fa-utensils"></i><span>Dining</span></a>
+                <a href="#rooms"><i class="fas fa-bed"></i><span>Rooms</span></a>
+                <a href="#testimonials"><i class="fas fa-star"></i><span>Reviews</span></a>
+                <a href="#about"><i class="fas fa-leaf"></i><span>About</span></a>
+                <a href="#contact" class="btn-nav-contact"><i class="fas fa-phone-alt"></i><span>Contact</span></a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- ============ MOBILE MENU ============ -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="close-menu" id="closeMenu">&times;</div>
-        <a href="#home">Home</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#dining">Dining</a>
-        <a href="#rooms">Rooms</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="mobile-contact-btn">Contact Us</a>
+    <!-- ============================================================
+         MOBILE MENU
+    ============================================================ -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="mobile-menu-backdrop" id="mobileBackdrop"></div>
+        <div class="mobile-menu-panel">
+            <button class="close-menu" id="closeMenu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="mobile-logo">
+                <i class="fas fa-leaf"></i> SOY <span>Riverview</span>
+            </div>
+
+            <nav class="mobile-links">
+                <a href="#home" class="mobile-link"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="#gallery" class="mobile-link"><i class="fas fa-images"></i><span>Gallery</span></a>
+                <a href="#dining" class="mobile-link"><i class="fas fa-utensils"></i><span>Dining</span></a>
+                <a href="#rooms" class="mobile-link"><i class="fas fa-bed"></i><span>Rooms</span></a>
+                <a href="#testimonials" class="mobile-link"><i class="fas fa-star"></i><span>Reviews</span></a>
+                <a href="#about" class="mobile-link"><i class="fas fa-leaf"></i><span>About</span></a>
+                <a href="#contact" class="mobile-link mobile-contact-btn"><i class="fas fa-phone-alt"></i><span>Contact Us</span></a>
+            </nav>
+
+            <div class="mobile-footer">
+                <div class="mobile-socials">
+                    <a href="https://instagram.com/soyriverviewresort" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/YOUR_FACEBOOK" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://tiktok.com/@soyriverviewresort" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <p class="mobile-call">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+254724286855">+254 724 286 855</a>
+                </p>
+            </div>
+        </div>
     </div>
 
-    <!-- ============ HERO SLIDESHOW ============ -->
-    <div class="hero-slideshow" id="home">
-        <div class="slide active" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/0001.jpeg');">
+    <!-- ============================================================
+         HERO SLIDESHOW
+    ============================================================ -->
+    <section class="hero-slideshow" id="home">
+        <div class="slide active" data-bg="images/0001.jpeg">
+            <div class="slide-bg" style="background-image: url('images/0001.jpeg');"></div>
             <div class="hero-glass-box">
+                <span class="hero-badge"><i class="fas fa-star"></i> Riverside Luxury</span>
                 <h2>SOY Riverview Resort</h2>
                 <h1>River Side Grill</h1>
                 <p>Wake up to whispering rivers &amp; emerald woods — your sanctuary awaits.</p>
-                <a href="#contact" class="btn-gold">Discover Escape <i class="fas fa-arrow-right"></i></a>
+                <div class="hero-buttons">
+                    <a href="#rooms" class="btn-gold">Discover Escape <i class="fas fa-arrow-right"></i></a>
+                    <a href="#gallery" class="btn-outline">View Gallery</a>
+                </div>
             </div>
         </div>
-        <div class="slide" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/02.jpeg');">
+
+        <div class="slide" data-bg="images/02.jpeg">
+            <div class="slide-bg" style="background-image: url('images/02.jpeg');"></div>
             <div class="hero-glass-box">
+                <span class="hero-badge"><i class="fas fa-fire"></i> Evening Magic</span>
                 <h2>Evening Magic</h2>
                 <h1>Bonfire by River</h1>
                 <p>Storytelling, starlight &amp; curated local flavours every evening.</p>
-                <a href="#contact" class="btn-gold">Experience Luxury</a>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-gold">Experience Luxury</a>
+                </div>
             </div>
         </div>
-        <div class="slide" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/a2.jpg');">
+
+        <div class="slide" data-bg="images/a2.jpg">
+            <div class="slide-bg" style="background-image: url('images/a2.jpg');"></div>
             <div class="hero-glass-box">
+                <span class="hero-badge"><i class="fas fa-water"></i> Exclusive Amenities</span>
                 <h2>Exclusive Amenities</h2>
                 <h1>Infinity Edge Pool</h1>
                 <p>Overlooking the meandering river &amp; tropical forest — ultimate tranquility.</p>
-                <a href="#rooms" class="btn-gold">View Rooms</a>
+                <div class="hero-buttons">
+                    <a href="#rooms" class="btn-gold">View Rooms</a>
+                </div>
             </div>
         </div>
-        <div class="slide" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/a3.jpeg');">
+
+        <div class="slide" data-bg="images/a3.jpeg">
+            <div class="slide-bg" style="background-image: url('images/a3.jpeg');"></div>
             <div class="hero-glass-box">
+                <span class="hero-badge"><i class="fas fa-home"></i> Signature Suites</span>
                 <h2>Signature Suites</h2>
                 <h1>Riverside Cottages</h1>
                 <p>Handcrafted wooden cottages with private verandah &amp; river access.</p>
-                <a href="#contact" class="btn-gold">Book Now</a>
+                <div class="hero-buttons">
+                    <a href="#booking" class="btn-gold">Book Now</a>
+                </div>
             </div>
         </div>
-        <div class="slide-arrow arrow-left" id="prevSlide"><i class="fas fa-chevron-left"></i></div>
-        <div class="slide-arrow arrow-right" id="nextSlide"><i class="fas fa-chevron-right"></i></div>
-        <div class="slideshow-controls" id="dotsContainer"></div>
-    </div>
 
-    <!-- ============ GALLERY SECTION ============ -->
+        <!-- Controls -->
+        <button class="slide-arrow arrow-left" id="prevSlide" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+        <button class="slide-arrow arrow-right" id="nextSlide" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="slideshow-meta">
+            <div class="slide-counter">
+                <span id="currentSlideNum">01</span>
+                <span class="slide-counter-divider"></span>
+                <span id="totalSlideNum">04</span>
+            </div>
+            <div class="slideshow-controls" id="dotsContainer"></div>
+        </div>
+
+        <a href="#gallery" class="scroll-indicator" aria-label="Scroll down">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- ============================================================
+         GALLERY SECTION
+    ============================================================ -->
     <section class="section" id="gallery">
         <div class="section-title">
+            <span class="section-eyebrow"><i class="fas fa-camera"></i> Memories</span>
             <h2>Our Gallery</h2>
-            <div></div>
-            <p style="color: #6e624b; margin-top: 10px;">Captured moments at SOY Riverview Resort</p>
+            <div class="title-divider"></div>
+            <p>Captured moments at SOY Riverview Resort</p>
         </div>
-        <div class="gallery-grid">
-            <div class="gallery-item span-2">
-                <video width="100%" height="100%" controls autoplay muted loop style="object-fit: cover; border-radius: 28px;">
+
+        <!-- Filter Tabs -->
+        <div class="gallery-filters" id="galleryFilters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="nature">Nature</button>
+            <button class="filter-btn" data-filter="dining">Dining</button>
+            <button class="filter-btn" data-filter="rooms">Rooms</button>
+            <button class="filter-btn" data-filter="events">Events</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Video -->
+            <div class="gallery-item span-2 video-item" data-category="events">
+                <video width="100%" height="100%" controls autoplay muted loop playsinline preload="metadata">
                     <source src="images/video01.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
-                <div class="card-caption" style="text-align: center; padding: 10px; background: #fffcf5;">🎥 Experience SOY Riverview Resort</div>
+                <div class="gallery-overlay">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Experience SOY Riverview</span>
+                </div>
             </div>
-            <div class="gallery-item"><img src="images/dining .jpeg" alt="Dining"></div>
-            <div class="gallery-item"><img src="images/riverside003.jpeg" alt="Pool"></div>
-            <div class="gallery-item"><img src="images/outlook.jpeg" alt="Spa"></div>
-            <div class="gallery-item"><img src="images/riverside 004.jpeg" alt="Sunset"></div>
-            <div class="gallery-item"><img src="images/arena02.jpeg" alt="Cottage"></div>
-            <div class="gallery-item"><img src="images/bonfire.jpg" alt="Bonfire"></div>
-            <div class="gallery-item span-2"><img src="images/arena01.jpeg" alt="Dining Wide"></div>
-            <div class="gallery-item"><img src="images/manyata.jpeg" alt="Breakfast"></div>
-            <div class="gallery-item"><img src="images/gallery 002.jpeg" alt="River"></div>
-            <div class="gallery-item"><img src="images/gallery003.jpeg" alt="Garden"></div>
-            <div class="gallery-item"><img src="images/foresty.jpeg" alt="Forest"></div>
-            <div class="gallery-item"><img src="images/wines.jpeg" alt="Cottage Interior"></div>
-            <div class="gallery-item"><img src="images/evening.jpeg" alt="Evening"></div>
+
+            <div class="gallery-item" data-category="dining">
+                <img src="images/dining .jpeg" alt="Dining" loading="lazy">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Riverside Dining</span></div>
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <img src="images/riverside003.jpeg" alt="Pool" loading="lazy">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Riverside View</span></div>
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <img src="images/outlook.jpeg" alt="Outlook" loading="lazy">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Scenic Outlook</span></div>
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <img src="images/riverside 004.jpeg" alt="Sunset" loading="lazy">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Golden Sunset</span></div>
+            </div>
+            <div class="gallery-item" data-category="rooms">
+                <img src="images/arena02.jpeg" alt="Cottage" loading="lazy">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Cozy Cottage</span></div>
+            </div>
+            <div class="gallery-item" data-category="events">
+                <img src="images/bonfire.jpg" alt="Bonfire" loading="lazy">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Bonfire Nights</span></div>
+            </div>
+            <div class="gallery-item span-2" data-category="dining">
+                <img src="images/arena01.jpeg" alt="Dining Wide" loading="lazy">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Group Dining</span></div>
+            </div>
+            <div class="gallery-item" data-category="dining">
+                <img src="images/manyata.jpeg" alt="Breakfast" loading="lazy">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Breakfast Spread</span></div>
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <img src="images/gallery 002.jpeg" alt="River" loading="lazy">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>River Flow</span></div>
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <img src="images/gallery003.jpeg" alt="Garden" loading="lazy">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Lush Gardens</span></div>
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <img src="images/foresty.jpeg" alt="Forest" loading="lazy">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Emerald Forest</span></div>
+            </div>
+            <div class="gallery-item" data-category="rooms">
+                <img src="images/wines.jpeg" alt="Cottage Interior" loading="lazy">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Wine Selection</span></div>
+            </div>
+            <div class="gallery-item" data-category="events">
+                <img src="images/evening.jpeg" alt="Evening" loading="lazy">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>Evening Ambiance</span></div>
+            </div>
         </div>
     </section>
 
-    <!-- ============ DINING SECTION ============ -->
+    <!-- ============================================================
+         DINING SECTION
+    ============================================================ -->
     <section class="section" id="dining">
         <div class="rooms-split">
             <div class="rooms-text">
+                <span class="section-eyebrow light"><i class="fas fa-utensils"></i> Culinary</span>
                 <h2>Exquisite <span>Dining Experience</span></h2>
-                <p style="margin-bottom: 30px; opacity: 0.9;">Enjoy farm‑to‑table meals, riverside BBQ, and authentic local flavours crafted by our master chefs.</p>
-                <a href="#contact" class="btn-gold" style="background:transparent; border: 2px solid var(--resort-gold);">View Menu</a>
+                <p>Enjoy farm‑to‑table meals, riverside BBQ, and authentic local flavours crafted by our master chefs.</p>
+                <a href="#contact" class="btn-outline-gold">Reserve a Table</a>
             </div>
-            <div class="rooms-img" style="background-image: url('images/dining01.jpeg'); background-size: cover; background-position: center;"></div>
+            <div class="rooms-img" style="background-image: url('images/dining01.jpeg');"></div>
         </div>
-        <div class="section-title">
+
+        <div class="section-title" style="margin-top: 80px;">
+            <span class="section-eyebrow"><i class="fas fa-fire"></i> From the Grill</span>
             <h2>Chef's Specials</h2>
-            <div></div>
-            <p style="color: #6e624b;">Exquisite local &amp; international cuisine</p>
+            <div class="title-divider"></div>
+            <p>Exquisite local &amp; international cuisine</p>
         </div>
-        <div class="grid">
-            <div class="card">
-                <img src="images/nyama choma.jpg" alt="Nyama Choma">
+
+        <!-- Dining Filter Tabs -->
+        <div class="dining-filters" id="diningFilters">
+            <button class="filter-btn active" data-dfilter="all">All</button>
+            <button class="filter-btn" data-dfilter="grills">Grills</button>
+            <button class="filter-btn" data-dfilter="breakfast">Breakfast</button>
+            <button class="filter-btn" data-dfilter="mains">Mains</button>
+        </div>
+
+        <div class="grid" id="diningGrid">
+            <div class="card" data-dish-category="grills">
+                <div class="card-image">
+                    <img src="images/nyama choma.jpg" alt="Nyama Choma" loading="lazy">
+                    <span class="card-badge"><i class="fas fa-fire"></i> Popular</span>
+                </div>
                 <div class="card-body">
                     <h3>Nyama Choma</h3>
                     <p>Flame-grilled to perfection (1kg) served with kachumbari</p>
-                    <span class="price">KSh 1500</span>
+                    <div class="card-footer">
+                        <span class="price">KSh 1500</span>
+                        <a href="https://wa.me/254724286855?text=Hi%20SOY%20Riverview%2C%20I'd%20like%20to%20order%20Nyama%20Choma"
+                           target="_blank" rel="noopener" class="order-btn" aria-label="Order Nyama Choma on WhatsApp">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <img src="images/kuku kienyeji.jpg" alt="Kuku Kienyeji">
+
+            <div class="card" data-dish-category="grills">
+                <div class="card-image">
+                    <img src="images/kuku kienyeji.jpg" alt="Kuku Kienyeji" loading="lazy">
+                    <span class="card-badge"><i class="fas fa-star"></i> Chef's Pick</span>
+                </div>
                 <div class="card-body">
                     <h3>Kuku Kienyeji</h3>
                     <p>Traditional local chicken feast with ugali and greens</p>
-                    <span class="price">KSh 2000</span>
+                    <div class="card-footer">
+                        <span class="price">KSh 2000</span>
+                        <a href="https://wa.me/254724286855?text=Hi%20SOY%20Riverview%2C%20I'd%20like%20to%20order%20Kuku%20Kienyeji"
+                           target="_blank" rel="noopener" class="order-btn">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <img src="images/fresh fish.jpg" alt="Fresh Fish">
+
+            <div class="card" data-dish-category="mains">
+                <div class="card-image">
+                    <img src="images/fresh fish.jpg" alt="Fresh Fish" loading="lazy">
+                </div>
                 <div class="card-body">
                     <h3>Fresh Fish</h3>
                     <p>Crispy &amp; seasoned lake fish with chips or rice</p>
-                    <span class="price">KSh 500</span>
+                    <div class="card-footer">
+                        <span class="price">KSh 500</span>
+                        <a href="https://wa.me/254724286855?text=Hi%20SOY%20Riverview%2C%20I'd%20like%20to%20order%20Fresh%20Fish"
+                           target="_blank" rel="noopener" class="order-btn">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <img src="images/breakfast.jpg" alt="Breakfast">
+
+            <div class="card" data-dish-category="breakfast">
+                <div class="card-image">
+                    <img src="images/breakfast.jpg" alt="Breakfast" loading="lazy">
+                </div>
                 <div class="card-body">
                     <h3>Traditional Breakfast</h3>
                     <p>Tea, Mandazi, Sausage, and fresh fruits</p>
-                    <span class="price">KSh 500</span>
+                    <div class="card-footer">
+                        <span class="price">KSh 500</span>
+                        <a href="https://wa.me/254724286855?text=Hi%20SOY%20Riverview%2C%20I'd%20like%20to%20order%20Breakfast"
+                           target="_blank" rel="noopener" class="order-btn">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <img src="images/mixed grill.jpg" alt="Mixed Grill">
+
+            <div class="card" data-dish-category="grills">
+                <div class="card-image">
+                    <img src="images/mixed grill.jpg" alt="Mixed Grill" loading="lazy">
+                </div>
                 <div class="card-body">
                     <h3>Mixed Grill Platter</h3>
                     <p>Assorted meats, sausages, and grilled vegetables</p>
-                    <span class="price">KSh 2000</span>
+                    <div class="card-footer">
+                        <span class="price">KSh 2000</span>
+                        <a href="https://wa.me/254724286855?text=Hi%20SOY%20Riverview%2C%20I'd%20like%20to%20order%20Mixed%20Grill"
+                           target="_blank" rel="noopener" class="order-btn">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <img src="images/mbuzi choma.jpeg" alt="Mbuzi Choma">
+
+            <div class="card" data-dish-category="grills">
+                <div class="card-image">
+                    <img src="images/mbuzi choma.jpeg" alt="Mbuzi Choma" loading="lazy">
+                    <span class="card-badge special">Buy &amp; Grill Free</span>
+                </div>
                 <div class="card-body">
                     <h3>Mbuzi Choma</h3>
                     <p>Buy your goat, chomewa free</p>
-                    <span class="price">AVAILABLE</span>
+                    <div class="card-footer">
+                        <span class="price">Available</span>
+                        <a href="https://wa.me/254724286855?text=Hi%20SOY%20Riverview%2C%20I'd%20like%20to%20enquire%20about%20Mbuzi%20Choma"
+                           target="_blank" rel="noopener" class="order-btn">
+                            <i class="fab fa-whatsapp"></i> Enquire
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============ ROOMS SECTION ============ -->
-    <div class="section" id="rooms">
+    <!-- ============================================================
+         ROOMS SECTION
+    ============================================================ -->
+    <section class="section" id="rooms">
         <div class="rooms-split">
             <div class="rooms-text">
+                <span class="section-eyebrow light"><i class="fas fa-bed"></i> Stay With Us</span>
                 <h2>Cozy Rooms for <br><span>Ultimate Comfort</span></h2>
-                <p style="margin-bottom: 30px; opacity: 0.9;">Starting from KSh 2,500 per night. Nature views right from your window. Experience serenity with modern luxury.</p>
-                <a href="#contact" class="btn-gold" style="background:transparent; border: 2px solid var(--resort-gold);">Check Availability</a>
+                <p>Starting from KSh 2,500 per night. Nature views right from your window. Experience serenity with modern luxury.</p>
+                <a href="#booking" class="btn-outline-gold">Check Availability</a>
             </div>
             <div class="rooms-img" style="background-image: url('images/room\ photo.jpg');"></div>
         </div>
-        <div class="section-title" style="margin-top: 60px;">
-            <h2>Our Accommodations</h2>
-            <div></div>
+
+        <div class="section-title" style="margin-top: 80px;">
+            <span class="section-eyebrow"><i class="fas fa-key"></i> Accommodations</span>
+            <h2>Our Rooms</h2>
+            <div class="title-divider"></div>
         </div>
+
         <div class="room-grid">
             <div class="room-card">
-                <img src="images/riverview.jpeg" alt="River Suite">
+                <div class="room-image-wrap">
+                    <img src="images/riverview.jpeg" alt="River Suite" loading="lazy">
+                    <span class="room-status available"><i class="fas fa-check-circle"></i> Available</span>
+                    <span class="room-rating"><i class="fas fa-star"></i> 4.9</span>
+                </div>
                 <div class="room-info">
                     <h3>Riverview Suite</h3>
                     <p>Panoramic river view, king bed, private balcony, minibar</p>
                     <div class="room-features">
                         <span><i class="fas fa-bed"></i> King Bed</span>
                         <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                        <span><i class="fas fa-tv"></i> Smart TV</span>
+                    </div>
+                    <div class="room-footer">
+                        <div class="room-price">
+                            <span class="from">From</span>
+                            <strong>KSh 5,500</strong>
+                            <span class="per">/ night</span>
+                        </div>
+                        <a href="https://wa.me/254724286855?text=Hi%20SOY%20Riverview%2C%20I'd%20like%20to%20book%20the%20Riverview%20Suite"
+                           target="_blank" rel="noopener" class="btn-book">
+                            <i class="fab fa-whatsapp"></i> Book
+                        </a>
                     </div>
                 </div>
             </div>
+
             <div class="room-card">
-                <img src="images/garden.jpeg" alt="Garden Retreat">
+                <div class="room-image-wrap">
+                    <img src="images/garden.jpeg" alt="Garden Retreat" loading="lazy">
+                    <span class="room-status available"><i class="fas fa-check-circle"></i> Available</span>
+                    <span class="room-rating"><i class="fas fa-star"></i> 4.8</span>
+                </div>
                 <div class="room-info">
                     <h3>Garden Retreat</h3>
                     <p>Overlooking tropical gardens, queen bed, peaceful ambiance</p>
                     <div class="room-features">
                         <span><i class="fas fa-seedling"></i> Garden View</span>
                         <span><i class="fas fa-coffee"></i> Tea Station</span>
+                        <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                    </div>
+                    <div class="room-footer">
+                        <div class="room-price">
+                            <span class="from">From</span>
+                            <strong>KSh 3,500</strong>
+                            <span class="per">/ night</span>
+                        </div>
+                        <a href="https://wa.me/254724286855?text=Hi%20SOY%20Riverview%2C%20I'd%20like%20to%20book%20the%20Garden%20Retreat"
+                           target="_blank" rel="noopener" class="btn-book">
+                            <i class="fab fa-whatsapp"></i> Book
+                        </a>
                     </div>
                 </div>
             </div>
+
             <div class="room-card">
-                <img src="images/bed01.jpeg" alt="Family Suite">
+                <div class="room-image-wrap">
+                    <img src="images/bed01.jpeg" alt="Family Suite" loading="lazy">
+                    <span class="room-status available"><i class="fas fa-check-circle"></i> Available</span>
+                    <span class="room-rating"><i class="fas fa-star"></i> 4.9</span>
+                </div>
                 <div class="room-info">
                     <h3>Family Suite</h3>
-                    <p>Living area, perfect for family getaway</p>
+                    <p>Spacious living area, perfect for family getaway</p>
                     <div class="room-features">
                         <span><i class="fas fa-users"></i> Family</span>
                         <span><i class="fas fa-utensils"></i> Kitchenette</span>
+                        <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                    </div>
+                    <div class="room-footer">
+                        <div class="room-price">
+                            <span class="from">From</span>
+                            <strong>KSh 7,500</strong>
+                            <span class="per">/ night</span>
+                        </div>
+                        <a href="https://wa.me/254724286855?text=Hi%20SOY%20Riverview%2C%20I'd%20like%20to%20book%20the%20Family%20Suite"
+                           target="_blank" rel="noopener" class="btn-book">
+                            <i class="fab fa-whatsapp"></i> Book
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- ============ ABOUT SECTION ============ -->
+    <!-- ============================================================
+         BOOKING SECTION (NEW)
+    ============================================================ -->
+    <section class="section booking-section" id="booking">
+        <div class="section-title">
+            <span class="section-eyebrow light"><i class="fas fa-calendar-check"></i> Reserve</span>
+            <h2 style="color:white;">Book Your Stay</h2>
+            <div class="title-divider"></div>
+            <p style="color: rgba(255,255,255,0.85);">Fill in your details — we'll confirm via WhatsApp instantly</p>
+        </div>
+
+        <form class="booking-form" id="bookingForm" novalidate>
+            <div class="booking-grid">
+                <div class="form-group">
+                    <label for="checkin"><i class="fas fa-calendar-day"></i> Check-in</label>
+                    <input type="date" id="checkin" name="checkin" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout"><i class="fas fa-calendar-day"></i> Check-out</label>
+                    <input type="date" id="checkout" name="checkout" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests"><i class="fas fa-users"></i> Guests</label>
+                    <select id="guests" name="guests" required>
+                        <option value="">Select guests</option>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5+">5+ Guests</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="roomType"><i class="fas fa-bed"></i> Room Type</label>
+                    <select id="roomType" name="roomType" required>
+                        <option value="">Select room</option>
+                        <option value="Riverview Suite" data-price="5500">Riverview Suite — KSh 5,500</option>
+                        <option value="Garden Retreat" data-price="3500">Garden Retreat — KSh 3,500</option>
+                        <option value="Family Suite" data-price="7500">Family Suite — KSh 7,500</option>
+                    </select>
+                </div>
+                <div class="form-group full">
+                    <label for="guestName"><i class="fas fa-user"></i> Your Name</label>
+                    <input type="text" id="guestName" name="guestName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group full">
+                    <label for="guestPhone"><i class="fas fa-phone"></i> Phone Number</label>
+                    <input type="tel" id="guestPhone" name="guestPhone" placeholder="+254 7XX XXX XXX" required>
+                </div>
+                <div class="form-group full">
+                    <label for="specialRequests"><i class="fas fa-comment-dots"></i> Special Requests (Optional)</label>
+                    <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Any special requests..."></textarea>
+                </div>
+            </div>
+
+            <div class="booking-summary" id="bookingSummary">
+                <div class="summary-row">
+                    <span>Nights:</span>
+                    <strong id="nightsCount">0</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Estimated Total:</span>
+                    <strong id="totalPrice">KSh 0</strong>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-gold btn-block">
+                <i class="fab fa-whatsapp"></i> Confirm via WhatsApp
+            </button>
+        </form>
+    </section>
+
+    <!-- ============================================================
+         TESTIMONIALS SECTION (NEW)
+    ============================================================ -->
+    <section class="section" id="testimonials">
+        <div class="section-title">
+            <span class="section-eyebrow"><i class="fas fa-heart"></i> Loved by Guests</span>
+            <h2>What Our Guests Say</h2>
+            <div class="title-divider"></div>
+            <p>Real stories from real people</p>
+        </div>
+
+        <div class="testimonials-wrapper">
+            <button class="testimonial-nav prev" id="prevTestimonial" aria-label="Previous testimonial">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div class="testimonial-slider" id="testimonialSlider">
+                <div class="testimonial-card active">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                    <p>"The most peaceful getaway we've ever had. Waking up to the sound of the river and birds was magical. The bonfire night was unforgettable!"</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <strong>Amina W.</strong>
+                            <span>Nairobi, Kenya</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                    <p>"Nyama choma was out of this world! The service, the views, the cottages — everything was top tier. We'll definitely be back."</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <strong>James K.</strong>
+                            <span>Eldoret, Kenya</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                    <p>"Perfect for our family reunion. Kids loved the trails, adults loved the sunset views. Feels like home away from home."</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">G</div>
+                        <div class="author-info">
+                            <strong>Grace M.</strong>
+                            <span>Kisumu, Kenya</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                    <p>"From the infinity pool to the riverside dining, SOY Riverview exceeded every expectation. A true hidden gem in Uasin Gishu."</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">D</div>
+                        <div class="author-info">
+                            <strong>David O.</strong>
+                            <span>Mombasa, Kenya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="testimonial-nav next" id="nextTestimonial" aria-label="Next testimonial">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="testimonial-dots" id="testimonialDots"></div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT SECTION
+    ============================================================ -->
     <section class="section" id="about">
         <div class="section-title">
+            <span class="section-eyebrow"><i class="fas fa-leaf"></i> Our Story</span>
             <h2>About Us</h2>
-            <div></div>
+            <div class="title-divider"></div>
         </div>
 
-        <div style="text-align: center; margin-bottom: 40px;">
-            <img src="images/about section.jpg" alt="About SOY Riverview" style="width: 100%; max-width: 900px; border-radius: 32px; object-fit: cover; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
-            <p style="margin-top: 12px; color: #7f6b4a; font-size: 0.9rem;">Experience serenity at SOY Riverview Resort</p>
+        <div class="about-featured">
+            <img src="images/about section.jpg" alt="About SOY Riverview" loading="lazy">
         </div>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center;">
-            <div style="flex: 0.8; min-width: 250px; max-width: 400px;">
-                <img src="images/about us.jpeg" style="width: 100%; border-radius: 32px; object-fit: cover; box-shadow: 0 15px 30px rgba(0,0,0,0.1);" alt="About Resort">
+        <div class="about-split">
+            <div class="about-image">
+                <img src="images/about us.jpeg" alt="About Resort" loading="lazy">
+                <div class="about-experience-badge">
+                    <strong>5+</strong>
+                    <span>Years of Hospitality</span>
+                </div>
             </div>
-            <div style="flex: 1.2; min-width: 280px;">
-                <h2 style="font-size: 2rem; color: var(--resort-green); margin-bottom: 20px;">Welcome to SOY Riverview</h2>
-                <p style="margin-bottom: 20px;">Located in Soy, Uasin Gishu, SOY Riverview Resort provides a peaceful escape with scenic nature views, hiking trails, and the finest dining experience in the region.</p>
+            <div class="about-text">
+                <h2>Welcome to SOY Riverview</h2>
+                <p>Located in Soy, Uasin Gishu, SOY Riverview Resort provides a peaceful escape with scenic nature views, hiking trails, and the finest dining experience in the region.</p>
                 <p>Our mission: To offer world-class hospitality while preserving the natural beauty of the riverside. Every stay is crafted to rejuvenate your soul.</p>
+
+                <div class="about-stats">
+                    <div class="stat">
+                        <strong data-count="5000">0</strong>
+                        <span>Happy Guests</span>
+                    </div>
+                    <div class="stat">
+                        <strong data-count="15">0</strong>
+                        <span>Luxury Rooms</span>
+                    </div>
+                    <div class="stat">
+                        <strong data-count="50">0</strong>
+                        <span>Events Hosted</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -269,12 +720,15 @@
         </div>
     </section>
 
-    <!-- ============ CONTACT SECTION ============ -->
+    <!-- ============================================================
+         CONTACT SECTION
+    ============================================================ -->
     <section class="section" id="contact">
         <div class="section-title">
+            <span class="section-eyebrow"><i class="fas fa-envelope"></i> Reach Out</span>
             <h2>Contact Us</h2>
-            <div></div>
-            <p style="color: #6e624b;">We’d love to hear from you – follow us or reach out directly</p>
+            <div class="title-divider"></div>
+            <p>We'd love to hear from you — follow us or reach out directly</p>
         </div>
 
         <div class="contact-hero">
@@ -282,110 +736,180 @@
             <div class="contact-hero-text">
                 <h2>Get in Touch</h2>
                 <p>Whether you're planning a getaway, a corporate retreat, or a special celebration, our team is ready to assist you.</p>
-                <p>
-                    <i class="fas fa-map-marker-alt" style="color: var(--resort-gold);"></i> Soy, Uasin Gishu County, Kenya<br>
-                    <i class="fas fa-phone-alt" style="color: var(--resort-gold);"></i>
-                    <a href="tel:+254724286855" class="contact-link">+254 724 286 855</a><br>
-                    <i class="fas fa-envelope" style="color: var(--resort-gold);"></i>
-                    <a href="mailto:resortsoyriverview@gmail.com" class="contact-link">resortsoyriverview@gmail.com</a>
-                </p>
+
+                <div class="contact-info-list">
+                    <a href="https://maps.google.com/?q=0.667922,35.158528" target="_blank" rel="noopener" class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Location</strong>
+                            <span>Soy, Uasin Gishu County, Kenya</span>
+                        </div>
+                    </a>
+                    <a href="tel:+254724286855" class="contact-info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong>Phone</strong>
+                            <span>+254 724 286 855</span>
+                        </div>
+                    </a>
+                    <a href="mailto:resortsoyriverview@gmail.com" class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <span>resortsoyriverview@gmail.com</span>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/254724286855" target="_blank" rel="noopener" class="contact-info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <span>Chat with us instantly</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
         <div class="contact-details-grid">
-            <div class="contact-card">
-                <i class="fas fa-concierge-bell"></i>
-                <h4>24/7 Guest Support</h4>
-                <p>Our front desk is always open to assist you.</p>
-            </div>
-            <div class="contact-card">
-                <i class="fas fa-heart"></i>
-                <h4>Family-Run Hospitality</h4>
-                <p>Warm, personal care from our local family to yours.</p>
-            </div>
-            <div class="contact-card">
-                <i class="fas fa-calendar-alt"></i>
-                <h4>Event Planning</h4>
-                <p>Weddings, conferences, and private parties.</p>
-            </div>
-            <div class="contact-card">
-                <i class="fas fa-leaf"></i>
-                <h4>Sustainable Commitment</h4>
-                <p>Eco-friendly practices protecting our natural heritage.</p>
-            </div>
+            <div class="contact-card"><i class="fas fa-concierge-bell"></i><h4>24/7 Guest Support</h4><p>Our front desk is always open to assist you.</p></div>
+            <div class="contact-card"><i class="fas fa-heart"></i><h4>Family-Run Hospitality</h4><p>Warm, personal care from our local family to yours.</p></div>
+            <div class="contact-card"><i class="fas fa-calendar-alt"></i><h4>Event Planning</h4><p>Weddings, conferences, and private parties.</p></div>
+            <div class="contact-card"><i class="fas fa-leaf"></i><h4>Sustainable Commitment</h4><p>Eco-friendly practices protecting our natural heritage.</p></div>
         </div>
 
-        <!-- Social Media Section -->
+        <!-- Social Media -->
         <div class="social-section">
             <h3>Connect With Us</h3>
             <div class="social-icons-large">
-                <a href="#" target="_blank" id="instagramLink">
-                    <i class="fab fa-instagram"></i>
-                    <span>Instagram</span>
-                </a>
-                <a href="#" target="_blank" id="facebookLink">
-                    <i class="fab fa-facebook-f"></i>
-                    <span>Facebook</span>
-                </a>
-                <a href="#" target="_blank" id="twitterLink">
-                    <i class="fab fa-twitter"></i>
-                    <span>Twitter</span>
-                </a>
-                <a href="#" target="_blank" id="youtubeLink">
-                    <i class="fab fa-youtube"></i>
-                    <span>YouTube</span>
-                </a>
-                <a href="#" target="_blank" id="tiktokLink">
-                    <i class="fab fa-tiktok"></i>
-                    <span>TikTok</span>
-                </a>
+                <a href="#" target="_blank" id="instagramLink" aria-label="Instagram"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+                <a href="#" target="_blank" id="facebookLink" aria-label="Facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                <a href="#" target="_blank" id="twitterLink" aria-label="Twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+                <a href="#" target="_blank" id="youtubeLink" aria-label="YouTube"><i class="fab fa-youtube"></i><span>YouTube</span></a>
+                <a href="#" target="_blank" id="tiktokLink" aria-label="TikTok"><i class="fab fa-tiktok"></i><span>TikTok</span></a>
             </div>
-            <p style="margin-top: 30px; color: #7f6b4a;">Click the icons above to follow us on social media</p>
         </div>
 
-        <!-- Map and Special Offer -->
+        <!-- Map + Offer -->
         <div class="map-special-container">
             <div>
-                <h3 style="font-size: 1.7rem; color: var(--resort-green); margin-bottom: 20px;">Find Us</h3>
+                <h3><i class="fas fa-map-marked-alt"></i> Find Us</h3>
                 <div class="map-container">
                     <iframe
                         src="https://www.google.com/maps?q=0.667922,35.158528&z=15&output=embed"
-                        width="100%"
-                        height="250"
-                        style="border:0; border-radius: 28px;"
-                        allowfullscreen=""
-                        loading="lazy">
+                        width="100%" height="280" style="border:0; border-radius: 24px;"
+                        allowfullscreen="" loading="lazy">
                     </iframe>
                 </div>
+                <a href="https://maps.google.com/?q=0.667922,35.158528" target="_blank" rel="noopener" class="btn-directions">
+                    <i class="fas fa-directions"></i> Get Directions
+                </a>
             </div>
             <div>
-                <div style="background: #f4efe3; border-radius: 28px; padding: 30px; text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center;">
-                    <i class="fas fa-tag" style="font-size: 2rem; color: var(--resort-gold); margin-bottom: 15px;"></i>
-                    <strong style="font-size: 1.3rem;">Special Offer</strong>
-                    <p style="margin: 15px 0;">15% off on 3+ nights!</p>
+                <div class="special-offer">
+                    <i class="fas fa-tag"></i>
+                    <strong>Special Offer</strong>
+                    <p>15% off on 3+ nights!</p>
                     <small>Mention code: <strong>SOY.WEB</strong></small>
+                    <a href="https://wa.me/254724286855?text=Hi%20SOY%20Riverview%2C%20I'd%20like%20to%20claim%20the%20SOY.WEB%20offer"
+                       target="_blank" rel="noopener" class="btn-gold" style="margin-top: 20px;">
+                        <i class="fab fa-whatsapp"></i> Claim Offer
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============ FOOTER ============ -->
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
     <footer>
-        <div class="social-links">
-            <a href="#" id="footerInstagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" id="footerFacebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" id="footerYouTube"><i class="fab fa-youtube"></i></a>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <i class="fas fa-leaf"></i> SOY <span>Riverview</span>
+                </div>
+                <p>Where nature meets comfort. Riverside luxury, serene cottages, and unforgettable memories in Soy, Uasin Gishu.</p>
+                <div class="social-links">
+                    <a href="#" id="footerInstagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" id="footerFacebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" id="footerYouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" id="footerTiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#dining">Dining</a></li>
+                    <li><a href="#rooms">Rooms</a></li>
+                    <li><a href="#booking">Book Now</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Soy, Uasin Gishu, Kenya</li>
+                    <li><i class="fas fa-phone-alt"></i> <a href="tel:+254724286855">+254 724 286 855</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:resortsoyriverview@gmail.com">resortsoyriverview@gmail.com</a></li>
+                    <li><i class="fas fa-clock"></i> Open 24/7</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Get exclusive offers &amp; updates</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+                </form>
+                <div class="payment-badges">
+                    <span>M-Pesa</span>
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                </div>
+            </div>
         </div>
-        <p>© 2026 SOY Riverview Resort — where nature meets comfort. All Rights Reserved.</p>
-        <p class="footer-credit">
-            Powered by
-            <a href="https://qoechtechnologies.vercel.app/" target="_blank" rel="noopener">
-                Qoech Technologies
-            </a>
-        </p>
+
+        <div class="footer-bottom">
+            <p>© 2026 SOY Riverview Resort — where nature meets comfort. All Rights Reserved.</p>
+            <p class="footer-credit">
+                Powered by
+                <a href="https://qoechtechnologies.vercel.app/" target="_blank" rel="noopener">Qoech Technologies</a>
+            </p>
+        </div>
     </footer>
 
-    <div class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></div>
+    <!-- ============================================================
+         FLOATING ACTION BUTTONS
+    ============================================================ -->
+    <div class="floating-actions">
+        <a href="https://wa.me/254724286855?text=Hi%20SOY%20Riverview%2C%20I'd%20like%20to%20enquire"
+           target="_blank" rel="noopener" class="fab-btn whatsapp" aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <span class="fab-tooltip">Chat with us</span>
+        </a>
+        <a href="tel:+254724286855" class="fab-btn call" aria-label="Call us">
+            <i class="fas fa-phone-alt"></i>
+            <span class="fab-tooltip">Call now</span>
+        </a>
+    </div>
+
+    <!-- Scroll to top -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Gallery preview">
+        <button class="lightbox-nav next" id="lightboxNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
 
     <!-- ============ MAIN SCRIPT ============ -->
     <script src="js/script.js"></script>
