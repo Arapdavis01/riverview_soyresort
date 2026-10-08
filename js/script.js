@@ -6,6 +6,52 @@
     'use strict';
 
     /* =========================================================
+       CONTACT CONFIGURATION
+       Single source of truth for all contact numbers
+       ========================================================= */
+    const CONTACT = {
+        calls: [
+            {
+                display: '+254 795 094 996',
+                short: '0795 094 996',
+                raw: '+254795094996',
+                label: 'Reservations & Inquiries',
+                primary: true
+            },
+            {
+                display: '+254 724 286 855',
+                short: '0724 286 855',
+                raw: '+254724286855',
+                label: 'Reservations & Inquiries',
+                primary: false
+            }
+        ],
+        whatsapp: {
+            display: '+254 737 235 686',
+            short: '0737 235 686',
+            raw: '254737235686',
+            label: 'WhatsApp',
+            note: 'Menus, photos & bookings'
+        },
+        email: 'resortsoyriverview@gmail.com',
+        location: 'Soy, Uasin Gishu County, Kenya'
+    };
+
+    // Helper: build a WhatsApp link with prefilled message
+    function waLink(message) {
+        const text = encodeURIComponent(
+            message || "Hi SOY Riverview, I'd like to enquire"
+        );
+        return 'https://wa.me/' + CONTACT.whatsapp.raw + '?text=' + text;
+    }
+
+    // Helper: get a specific call link
+    function callLink(index) {
+        const line = CONTACT.calls[index] || CONTACT.calls[0];
+        return 'tel:' + line.raw;
+    }
+
+    /* =========================================================
        1. HAMBURGER MENU TOGGLE
        ========================================================= */
     const hamburger = document.getElementById('hamburger');
@@ -165,23 +211,23 @@
                 clearInterval(slideInterval);
             });
             heroContainer.addEventListener('mouseleave', resetInterval);
+
+            // Touch swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            heroContainer.addEventListener('touchstart', function (e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            heroContainer.addEventListener('touchend', function (e) {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    diff > 0 ? nextSlide() : prevSlide();
+                }
+            }, { passive: true });
         }
-
-        // Touch swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        heroContainer.addEventListener('touchstart', function (e) {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        heroContainer.addEventListener('touchend', function (e) {
-            touchEndX = e.changedTouches[0].screenX;
-            const diff = touchStartX - touchEndX;
-            if (Math.abs(diff) > 50) {
-                diff > 0 ? nextSlide() : prevSlide();
-            }
-        }, { passive: true });
 
         // Keyboard navigation
         document.addEventListener('keydown', function (e) {
@@ -380,7 +426,6 @@
         openLightbox(lightboxIndex);
     }
 
-    // Only image items (exclude video)
     lightboxItems = Array.prototype.slice.call(
         document.querySelectorAll('#galleryGrid .gallery-item:not(.video-item)')
     );
@@ -591,22 +636,24 @@
                 return;
             }
 
+            // Build WhatsApp message using newline characters
             const message =
-                'Hello SOY Riverview Resort,%0A%0A' +
-                'I would like to book a stay:%0A' +
-                '------------------------%0A' +
-                'Name: ' + encodeURIComponent(name) + '%0A' +
-                'Phone: ' + encodeURIComponent(phone) + '%0A' +
-                'Room: ' + encodeURIComponent(roomType) + '%0A' +
-                'Check-in: ' + checkin + '%0A' +
-                'Check-out: ' + checkout + '%0A' +
-                'Nights: ' + nights + '%0A' +
-                'Guests: ' + encodeURIComponent(guests) + '%0A' +
-                'Estimated Total: ' + encodeURIComponent(total) + '%0A' +
-                (special ? 'Special Requests: ' + encodeURIComponent(special) + '%0A' : '') +
-                '%0AThank you!';
+                'Hello SOY Riverview Resort,\n\n' +
+                'I would like to book a stay:\n' +
+                '------------------------\n' +
+                'Name: ' + name + '\n' +
+                'Phone: ' + phone + '\n' +
+                'Room: ' + roomType + '\n' +
+                'Check-in: ' + checkin + '\n' +
+                'Check-out: ' + checkout + '\n' +
+                'Nights: ' + nights + '\n' +
+                'Guests: ' + guests + '\n' +
+                'Estimated Total: ' + total + '\n' +
+                (special ? 'Special Requests: ' + special + '\n' : '') +
+                '\nThank you!';
 
-            const whatsappURL = 'https://wa.me/254724286855?text=' + message;
+            // Open WhatsApp with the correct number (via CONTACT config)
+            const whatsappURL = waLink(message);
             window.open(whatsappURL, '_blank');
             showToast('Redirecting to WhatsApp to confirm your booking...', 'success');
         });
@@ -724,7 +771,6 @@
 
             function step(now) {
                 const progress = Math.min((now - startTime) / duration, 1);
-                // Ease out cubic
                 const eased = 1 - Math.pow(1 - progress, 3);
                 const current = Math.floor(eased * target);
                 stat.textContent = current.toLocaleString() + '+';
@@ -791,7 +837,6 @@
     /* =========================================================
        19. SOCIAL MEDIA LINKS CONFIGURATION
        ========================================================= */
-    // Replace these with your real profile URLs
     const socialLinks = {
         instagram: 'https://instagram.com/soyriverviewresort',
         facebook: 'https://facebook.com/YOUR_FACEBOOK',
@@ -817,7 +862,33 @@
     setHref('footerTiktok', socialLinks.tiktok);
 
     /* =========================================================
-       20. INIT ON LOAD + RESIZE
+       20. DYNAMIC CONTACT LINK BINDING
+       Ensures all call / WhatsApp links use CONTACT config
+       ========================================================= */
+    function bindContactLinks() {
+        // Floating buttons
+        const fabWhatsApp = document.querySelector('.fab-btn.whatsapp');
+        const fabCall = document.querySelector('.fab-btn.call');
+
+        if (fabWhatsApp) {
+            fabWhatsApp.href = waLink("Hi SOY Riverview, I'd like to enquire");
+        }
+        if (fabCall) {
+            fabCall.href = callLink(0); // primary line
+        }
+
+        // Any generic WhatsApp links in page (dish cards, room bookings, offer)
+        document.querySelectorAll('a[href*="wa.me/"]').forEach(function (link) {
+            const match = link.href.match(/text=([^&]+)/);
+            const existingText = match ? decodeURIComponent(match[1]) : null;
+            link.href = waLink(existingText || "Hi SOY Riverview, I'd like to enquire");
+        });
+    }
+
+    bindContactLinks();
+
+    /* =========================================================
+       21. INIT ON LOAD + RESIZE
        ========================================================= */
     window.addEventListener('load', function () {
         updateScrollProgress();
